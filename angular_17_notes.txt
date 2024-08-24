@@ -190,3 +190,41 @@ Angular 17 vs Angular 16 and below
     -> -> main.ts -> Bootstrap AppComponent
 
     ng g modlue <module name>
+
+Angular 17 vs Angular 116 and below -> with no AppRoutingModule 
+-------------------------------------------------------------------------------------
+1. angular 16 and below needed atleast 1 module
+    Appmodule
+    AppRoutingModule
+
+    the routes were defined in AppRoutingModule and imported into the AppModule
+
+    Importing AppRoutingModule into AppModule
+
+    Appmodule -> main.ts
+
+2. Angular 17 onwards
+    App.routes.ts -> AppRoutes
+
+    App.routes.ts -> App.config.ts
+
+    AppConfig -> main.ts
+
+3. can i still use RoutingModule in Angular 17?
+    -> yes
+    -> Angular 17 is backwards comaptible
+
+4. ng g module <Module name> --routing
+
+
+Standalone Components
+---------------------------------------------------------------------------
+    1. ng generate componet <component_name>
+        ng g c <component_name> -> will create a new folder
+
+        ng g c <component_name> --flat 
+
+    2. ng g c <component_name> --standalone false
+        you ll need a module mandatory
+
+        ng g c <component_name> --standalone false --module=<module_name>
