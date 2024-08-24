@@ -1,0 +1,192 @@
+//Smruthul 
+// Angular17 notes 
+
+->commands
+    npm install -g @angular/cli@17
+        install angular cli version 17
+
+    ng version
+        check to version of angular
+
+    ng --help
+        to check out other commands
+
+    ng serve
+        to run the application
+
+    ng test
+        to run tests written in jasmine using karma runner
+
+->angular.json
+    configuring your styles , js or for pipeline depolyments
+    settings specifc to ur project
+
+->package.json
+    when run npm install the installed depandancies of the projects will be here
+
+->package-lock.json
+    same details as package.json + dev depandencies broken down in details (dont make any changes here manually)
+
+->tsconfig.app.json
+    typescript configuration (dont touch for dev purpose)
+
+->tsconfig.spec.json
+    typescript test specific configuration
+
+->src source code
+
+->app application/project
+    .html -> templete
+    .scss/.css/.less -> style
+    .spec.ts -> unit test file
+    .ts -> component class / logicalpiece of component
+
+    app.component.ts
+        selector -> app-root
+
+    app.component.spec.ts
+        -> unit testing
+        -> Jasmine - writing the unit tests
+        -> karma -> test runner
+
+->favicon is browser icon
+
+->Angular is a signle page application so only one html file
+
+->app-root first componet to initatlised
+
+->main.ts
+    entry point to ur project
+    which is the first component to be rendered in ur project
+
+->styles.scss
+    .css / .less / .scss extenstions of css
+    global styling for this project
+
+
+
+#Angular 17 CLI commands
+--------------------------------------------------------------------------------------
+    1. ng version -> gives u details of project -> packages , versions , name etc 
+    
+    2. ng new <project_name> -> creates new project
+    
+    3. ng generate -> generate the required project components/modules etc etc
+        component
+        module
+        service
+        pipe
+        directive
+        routing
+        interface
+        model 
+        class
+    
+    4. ng test -> used to running the unit tests
+        -> .spec.ts
+    
+    5. ng serve -> build and lanuch app locally
+    
+    6. ng build -> when it is production ready
+        ->dist folder
+            index.html
+            styles.css
+            polyfills.js
+            main.js
+        -> make changes to settings in angular.json
+            -> if needed
+    
+    7. ng add @angular/material
+        -> ng add for adding packages and modules of Angular
+
+    8. ng update
+        -> update any angular apllication to other versions using ng update
+
+    9. ng lint 
+        -> linting making sure making typescript is proper
+        -> coding syntax
+        -> patterns etc
+    
+
+Angular 17 - Modular Architecture
+----------------------------------------------------------------------------------------
+    1. No more NgModule -> 
+    2. No more default AppModule ->
+    3. Everything is standalone -> it can be injected and used anywhere
+    4. Modules are still very much supported and can be used just like any previous version
+
+
+Angular 17 -> Components in Angular
+------------------------------------------------------------------------------------------
+    1. Angular components are declared using @component decorator
+    2. @component decorator can have multiple inputs/parameters
+        -> selector -> itsthe name which can be used/refered in application
+        -> standalone -> by default all angular apps are standalone
+            -> no need to declare inside a module
+            -> u can directly use them in the applications
+        -> imports -> you will provide all required modules for this component
+        -> templeteUrl -> HTML for the component
+        -> templete -> use when you have only limited HTML
+        -> styleUrl -> The CSS or stylesheet for the component
+        -> styles -> define inline styling
+
+    3. Component Structure
+            <Component_name>.component.html -> templete/HTML/UI 
+            <Component_name>.component.css/.scss -> stylesheet for the component
+            <Component_name>.component.spec.ts -> unit tests for the component
+            <Component_name>.component.ts -> class for the component/logic/data/interactions
+    
+    4. By defaults all components are standalone    
+        -> use the, anywhere in the applications
+        -> no need to inject in a module
+    
+    5. Component Data Flow
+        @Input -> used for sending data to the component
+        @Output -> sending data from the component
+
+    6. Components -> Data Binding
+        -> Class -> Templete -> Class
+
+    7. Components lifecycle methods
+        -> right from creation -> [8 stages] -> destory
+
+
+Angular 17 -> generate components
+------------------------------------------------------------------------------------------
+    1. ng generate component <component_name>
+        -> in angular 17 -> components are standalone by default
+        -> in previous versions -> they are NOT standalone by default
+
+    2. to disale default standalone 
+        ng g c <component_name> --standalone false
+
+    3. but if you are on anyother Angular version < 17
+        -> entry in module file
+            AppModule
+    
+    4. The components are standalone = true by default
+        -> they dont need a module
+        -> otherwise u will get error
+    
+    5. angular.json ->
+        adding to schematics and diasble standalone = false in angular.json 
+
+
+Angular 17 vs Angular 16 and below
+------------------------------------------------------------------------------------------
+1. Angular 16 and below used AppModule
+    -> its mandatory to have atleast one module 
+    -> AppModule
+    -> main.ts -> Bootstrap AppModule
+
+2. Angular 17 onwards
+    -> Everything is standalone
+    -> no mandatory module is required
+    -> no AppModule anymore
+    -> but we can create our own custom Modules
+    -> is backwards comaptible
+        -> Everything that you were doing in angular 16 is still valid 
+    
+    -> -> main.ts -> Bootstrap AppComponent
+
+    ng g modlue <module name>
