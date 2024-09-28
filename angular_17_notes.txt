@@ -398,3 +398,72 @@ Signals
 6. Assign initial value
 
 VariableName = signal(<initialValue);
+
+7. How to print/use the value of a signal
+
+8. How to update a value of signal
+    set method to update the new value
+
+9. Computed values
+    use update method -> to manipulate/compute with current value
+
+10. Effect
+    -> use deletes some data -> api call should happen and some logging
+
+    -> Everytime a value if signal is changed -> effect will be triggered    
+
+    Angular will track all Signals inside the effect
+
+11. Custom Effects -> Implement a effect method and call on counter updates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
