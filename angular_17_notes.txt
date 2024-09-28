@@ -264,3 +264,137 @@ Component Communication
 
 Crew [Parent]
     Crew-Designations [Child]
+
+
+AppModule
+------------------------------------------------------------------------
+1. By default in Angular 17 - there is no AppModule
+
+2. Till Angular 16 -> it's mandatory to have AppModule
+
+3. in Angular 17 supports modules ->
+    -> we create our own module
+    -> use just like we were using it in the earlier versions
+
+4. In Angular 17 - we are bootstraping with AppComponent with configurations
+
+5. Till Angular 16 -> we were bootstrapping with AppModule
+
+
+Generate Modules
+------------------------------------------------------------------------
+1. ng g c module <module_name>
+
+2. ng g c <component_name> -m users 
+
+3. ng g c <component_name> -m users --standalone=false
+
+Types of Modules
+---------------------------------------------------------------------------
+
+1. Feature Module
+    Payments
+    Users
+    Crew
+    Airlines
+    Invoices
+
+2. Shared Module
+    Header
+    Authentication
+    Authorization
+    Footer
+
+3. Lazy loading Module
+    -> ondemand
+    -> Home page
+        Users
+    
+    -> Cart / Checkout page
+        Payments
+
+Lazy loading Module
+-----------------------------------------------------------------------------
+
+1. Lazy Loading module will be loaded only when user goes to that route
+
+2. Generate a lazy loading module
+    ng g module <module> --routing
+
+3. Inside lazy loading module we can have
+    - standalone Components
+    - regular component --standalone false
+
+4.
+    export const routes: Routes = [
+        {
+            path: 'admin',
+            loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)  //load module when required
+        },
+        {
+            path: 'add-user',
+            loadComponent: () => import('./admin/add-user/add-user.component').then(c => c.AddUserComponent), //load component of module when required
+            //component: AddUserComponent  // load component of module everytime
+        }
+    ];
+
+
+Data Binding
+------------------------------------------------------------------------------------
+
+1. One way Data Binding
+    1.1 Interpolation (`{{}}`)
+        From component(class) class to template(html)
+
+    1.2 Property Binding
+        From component(class) to template's element's property(attribute)
+
+    1.3 Event Binding
+        From component(class) to template's element's Event
+    
+2. Two Way Data Binding
+    
+    2.1 Data will flow from component(class) to template and back from template(html/ui) to component(class)
+    2.2 You need data from user
+        2.3 Forms
+
+
+
+Interpolation
+----------------------------------------------------------------------------------
+
+1. Interpolation is a technique written in between double curly braces
+
+    {{ }} -> inside the template
+
+2. Data flow from component(class) to template
+
+3. Security check for injections by escaping HTML entities
+
+
+Two way data binding
+--------------------------------------------------------------------------------------------
+1. Two way data  flows from componet to templete and back  from template to component
+
+2. [(ngModule)]
+
+3. Import "FormsModule" -> Mandatory -> else you will see errors
+
+4. We will bind ngModule to all the form fields
+
+
+Signals
+----------------------------------------------------------------------------------------------
+1. Signal is reactive primitive to store values
+
+2. We can update/change values in more  controlled way
+
+3. Track changes  in the signal
+
+4. ng g c signal
+
+5. to define  a variable as signal -> signal 
+
+6. Assign initial value
+
+VariableName = signal(<initialValue);

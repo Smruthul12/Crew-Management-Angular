@@ -3,12 +3,13 @@ import { RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { CrewComponent } from './crew/crew.component';
 import { CrewDesignationsComponent } from "./crew-designations/crew-designations.component";
+import { UsersModule } from './users/users.module';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButtonModule, CrewComponent, CrewDesignationsComponent],
+  imports: [RouterOutlet, MatButtonModule, CrewComponent, CrewDesignationsComponent, UsersModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
